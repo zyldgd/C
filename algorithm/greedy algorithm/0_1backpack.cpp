@@ -20,7 +20,6 @@ description:
 
 using namespace std; 
 
-
 int max(int a, int b)
 {
     return a > b ? a : b;
@@ -44,11 +43,9 @@ int main()
     int W[NUM] = {0, 1, 3, 2, 4, 5 }; // weight
     int V[NUM] = {0, 3, 5, 6, 2, 5 }; // value
     int C = 10;                       // capacity
-
     int M[7][11] = { 0 };             // SUM(values)
 
     /*
-
     M[j][i] --- M[5][10]
 
     +---+---+---+---+---+---+---+---+---+---+---+---+
@@ -65,9 +62,8 @@ int main()
     | 5 |   |   |   |   |   |   |   |   |   |   |   |
     +---+---+---+---+---+---+---+---+---+---+---+---+
       j
-    
     */
-    
+        
     for (int j = 5; j > 0; j--)// j [5-1]
     {
         for (int i = 1; i <= C; i++)// i [0-10]
@@ -80,7 +76,6 @@ int main()
     }
 
     show(&M[0][0], 7, 11);
-    
     printf("MAX VALUE = %d \n", M[1][10]);
     system("pause");
     return 0;
