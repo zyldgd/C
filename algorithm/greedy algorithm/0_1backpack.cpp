@@ -3,6 +3,7 @@ file   : 0_1backpack.cpp
 author : zyl
 date   : 18-8-26
 locat  : whu.edu.home
+ref    : https://baike.baidu.com/item/01%E8%83%8C%E5%8C%85 
 
 description:
         One of the problems solved by the greedy algorithm.
@@ -10,6 +11,7 @@ description:
     and those valuable things have different values and weights. now, you should find a way to chose them and 
     make total value highest.
     
+
 */
 
 #include "stdafx.h"
