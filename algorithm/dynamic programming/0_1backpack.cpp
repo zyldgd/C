@@ -15,16 +15,11 @@ description:
 */
 
 #include <iostream>
-#include <string>
+#include <algorithm>
 
 #define NUM 100
 
 using namespace std; 
-
-int max(int a, int b)
-{
-    return a > b ? a : b;
-}
 
 void show(int *arr,int h,int w)
 {
