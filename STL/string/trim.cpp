@@ -9,7 +9,6 @@
 */
 
 
-
 string trim(string str)
 {
     if (str.empty())
