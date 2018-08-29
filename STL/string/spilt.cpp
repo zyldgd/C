@@ -1,28 +1,19 @@
 /*
-相关依赖
+描述：
+>> split("123-465-789","-")
+   {"123", "456", "789"}
 
+
+相关依赖:
 #include <string>
 #include <vector>
 
-
-string trim(string str)
-{
-    if (str.empty())
-    {
-        return str;
-    }
-
-    str.erase(0, str.find_first_not_of(" "));
-    str.erase(str.find_last_not_of(" ") + 1);
-
-    return str;
-}
+(trim.cpp)[https://github.com/zyldgd/C_CPP/edit/master/STL/string/trim.cpp]
 */
 
 vector<string> split(string str, string pattern)
 {
     vector<string> ans;
-
     str += pattern;
     int fIndex = str.find_first_of(pattern);
     while (-1 != fIndex)
@@ -32,7 +23,6 @@ vector<string> split(string str, string pattern)
         {
             ans.push_back(addStr);
         }
-
         str.erase(0, fIndex + 1);
         fIndex = str.find_first_of(pattern);
     }
