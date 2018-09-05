@@ -31,12 +31,10 @@ void bar(sometype1 a, sometype2 *b);
 ```
 这个函数在a.cpp、b.cpp中调用了，分别是：
 ```cpp
-a.cpp:
-
+//a.cpp:
 bar(a, b);
 
-b.cpp:
-
+//b.cpp:
 bar(a, 0);
 ```
 
@@ -53,14 +51,14 @@ void bar(sometype1 a, int i);
 我知道，如果我们一开始就有bar的这两个重载函数的话，我们会在一开始就想办法避免这个问题（不使用重载）或者我们写出正确的调用代码，然而后面的这个重载函数或许是我们几个月或者很长一段时间后加上的话，那我们出错的可能性就会加大了不少。貌似我们现在说道的这些跟C++通常使用0来表示空指针没什么关系，好吧，假设我们的调用代码是这样的：
 
 ```cpp
-foo.h
+//foo.h
 
 void bar(sometype1 a, sometype2 *b);
-a.cpp
 
+//a.cpp
 bar(a, b);
-b.cpp
 
+//b.cpp
 bar(a, NULL);
 ```
 当bar的重载函数在后面加上来了之后，我们会发现出错了，但是出错的时候，我们找到b.cpp中的调用代码也很快可能忽略过去了，因为我们用的是NULL空指针啊，应该是调用的void bar(sometype1 a, sometype2 \*b)这个重载函数啊。实际上NULL在C++中就是0，写NULL这个反而会让你没那么警觉，因为NULL不够**明显**，而这里如果是使用0来表示空指针，那就会够**明显**，因为0是空指针，它更是一个整形常量。
@@ -75,11 +73,11 @@ bar(a, NULL);
 //foo.h
 
 void bar(sometype1 a, sometype2 *b);
+
 //a.cpp
-
 bar(a, b);
-//b.cpp
 
+//b.cpp
 bar(a, nullptr);
 ```
 在我们后来把bar的重载加上了之后，代码是这样：
@@ -88,16 +86,16 @@ bar(a, nullptr);
 
 void bar(sometype1 a, sometype2 *b);
 void bar(sometype1 a, int i);
+
 //a.cpp
-
 bar(a, b);
-//b.cpp
 
+//b.cpp
 bar(a, nullptr);
 ```
 这时候，我们的代码还是能够如预期的一样正确运行。
 
-在没有C++ 11的nullptr的时候，我们怎么解决避免这个问题呢？我们可以自己实现一个（《Imperfect C++》上面有一个实现）：
+在没有C++ 11的nullptr的时候，我们怎么解决避免这个问题呢？我们可以自己实现一个《Imperfect C++》上面有一个实现：
 
 ```cpp
 const
