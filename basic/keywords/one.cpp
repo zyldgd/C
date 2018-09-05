@@ -3,8 +3,6 @@
 #include <cmath>
 
 using namespace std;
-
-
 // a - z : 0 - 25
 int s2i(string str)
 {
@@ -15,7 +13,6 @@ int s2i(string str)
     }
     return ans;
 }
-
 
 string i2s(int n)
 {
@@ -38,8 +35,6 @@ string i2s(int n)
     }
     return ans;
 }
-
-
 
 int main()
 {
